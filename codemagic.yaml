@@ -1,21 +1,11 @@
 workflows:
-  primary:
-    name: Build and Test
+  version:3
+  build-ios:
+    name: Build iOS
     environment:
-      flutter: latest
+      vars:
+        FLUTTER_CHANNEL: stable
+        FLUTTER_VERSION: latest
     scripts:
-      - name: Install Dependencies
-        script: flutter pub get
-
-      - name: Build iOS Release
-        script: flutter build ios --release
-
-    artifacts:
-      - build/ios/Release.ipa
-
-    publishing:
-      email:
-        recipients:
-          - allbstanje@gmail.com
-        subject: "CodeMagic Build Finished"
-        message: "The build of your iOS app is complete. You can download the IPA file here: $BUILD_DIR/build/ios/Release.ipa"
+      - flutter packages get
+      - flutter build ios --release
