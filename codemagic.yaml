@@ -1,21 +1,4 @@
-{
-  "workflows": {
-    
-    "build-ios": {
-      "name": "Build iOS",
-      "environment": {
-        "vars": {
-          "FLUTTER_CHANNEL": "stable",
-          "FLUTTER_VERSION": "latest"
-        }
-      },
-      "scripts": [
-        "flutter packages get",
-        "flutter build ios --release"
-      ]
-    }
-  }
-}
+ 
 name: saventeam
 description: A new Flutter project.
 
@@ -47,6 +30,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+workflows:
+ 
+  build-ios:
+    name: Build iOS
+    environment:
+      vars:
+        FLUTTER_CHANNEL: stable
+        FLUTTER_VERSION: latest
+    scripts:
+      - flutter packages get
+      - flutter build ios --release
+
 
 
   # The following adds the Cupertino Icons font to your application.
