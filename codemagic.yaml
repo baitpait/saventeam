@@ -1,6 +1,6 @@
 {
   "workflows": {
-    "version": any,
+    
     "build-ios": {
       "name": "Build iOS",
       "environment": {
