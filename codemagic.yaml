@@ -1,11 +1,1 @@
 workflows:
-
-  build-ios:
-    name: Build iOS
-    environment:
-      vars:
-        FLUTTER_CHANNEL: stable
-        FLUTTER_VERSION: latest
-    scripts:
-      - flutter packages get
- 
