@@ -46,8 +46,7 @@ workflows:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  
+   
   #qrscan: ^0.3.3
   permission_handler: ^6.1.0
   barcode_scan2: ^4.2.4
