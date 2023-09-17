@@ -1,32 +1,21 @@
-# codemagic.yaml
-
 workflows:
-  # Define your workflow name
-  ios_build_workflow:
-    name: iOS Build Workflow
-    # Specify the trigger for the workflow, for example, on push to the master branch
-    trigger:
-      - "push"
-    # Define the build environment and settings
+  primary:
+    name: Build and Test
     environment:
-      flutter: "2.0.0"  # Specify your Flutter version
-      xcode: "13.0"     # Specify the Xcode version
-    # Define the build script
+      flutter: latest
     scripts:
-      # Set up the Flutter environment
-      - name: Install Flutter Dependencies
+      - name: Install Dependencies
         script: flutter pub get
-      # Build the iOS app in release mode
+
       - name: Build iOS Release
         script: flutter build ios --release
-    # Define the artifacts you want to save or deploy
+
     artifacts:
-      # Save the iOS build artifacts
-      - build/ios/
-    # Define deployment steps (optional)
-    deployment:
-      # Specify your deployment provider (e.g., App Store Connect)
-      - provider: app-store-connect
-        # Add your API key, app identifier, and other necessary configurations
-        api_key: $APP_STORE_CONNECT_API_KEY
-        app_identifier: com.example.myapp
+      - build/ios/Release.ipa
+
+    publishing:
+      email:
+        recipients:
+          - allbstanje@gmail.com
+        subject: "CodeMagic Build Finished"
+        message: "The build of your iOS app is complete. You can download the IPA file here: $BUILD_DIR/build/ios/Release.ipa"
